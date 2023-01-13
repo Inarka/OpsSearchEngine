@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Xunit;
 using OpsSearchEngine.Services.Mapping;
 using OpsSearchEngine.Services.Xml;
+using OpsSearchEngine.Models;
 
 namespace UnitTests
 {
@@ -33,15 +34,17 @@ namespace UnitTests
 
 			var opsSearchEngine = new OpsSearchEngineService(new XmlStringReader(options), new XmlFileDeserializer<Project>(), new Trie(), _mapper);
 
-			var inputOpsList = new List<string> { "5-324.62", "5-874.2" };
+			var inputOpsList = new List<string> { "5-324.62", "5-874.2", "5-470.1" };
 
 			// Act
-			var modules = await opsSearchEngine.FindModules(new OpsSearchEngine.Models.OpsRequest() { OpsCodes = inputOpsList });
+			var modules = await opsSearchEngine.FindModules(new OpsRequest() { Age = 25, OpsCodes = inputOpsList });
 
 			// Assert
 			Assert.NotEmpty(modules.Modules);
 			Assert.True(modules.Modules["5-324.62"].IsEndo);
 			Assert.False(modules.Modules["5-874.2"].IsEndo);
+			Assert.Equal(103, modules.Modules["5-470.1"].SchnittNahtZeit);
+			Assert.True(modules.Modules["5-470.1"].IsEndo);
 		}
 	}
 }

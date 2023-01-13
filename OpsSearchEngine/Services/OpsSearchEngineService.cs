@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Options;
 using OpsSearchEngine.Interfaces;
 using OpsSearchEngine.Models;
-using OpsSearchEngine.Models.Options;
 using OpsSearchEngine.Models.XML;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,7 +115,7 @@ namespace OpsSearchEngine.Services
 				return;
 			}
 
-			modules = modules.Where(x => x.StartAlter >= age && x.BisAlter <= age).ToList();
+			modules = modules.Where(x => x.StartAlter <= age && x.BisAlter >= age).ToList();
 		}
 
 		private bool IsEndoOps(string opsCode, string moduleEndoOpses)
