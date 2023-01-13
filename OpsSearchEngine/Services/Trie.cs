@@ -57,7 +57,7 @@ namespace OpsSearchEngine.Services
 
 			return root;
 		}
-		public Node? FindNode(Node root, string opsCode)
+		public Node FindNode(Node root, string opsCode)
 		{
 			for (int i = 0; i < opsCode.Length; i++)
 			{

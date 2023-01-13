@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PART>
+    <Allgemein>
+      <Name>NRZ-OP-KISS Definitionen</Name>
+      <Pfad>..\NRZ_OP_2022_neu.accdb</Pfad>
+      <File>OPKISS_DEF_2022_neu.xml</File>
+      <Created>05.12.2022 09:50:32</Created>
+      <Description>NRZ-OP-KISS Definitionen für IPSS</Description>
+    </Allgemein>
+    <Nodes DESC="Datensatzbeschreibung für NRZ-OP-KISS">
+      <Modul Modulfruppe="Modul Gruppe NRZ OP KISS Definition" Name="NRZ OP KISS Name - Modul" StartAlter="Start Alter für NRZ OP KISS Name - Modul" bisAlter="bis Alter für  NRZ OP KISS Name - Modul" InclICD="erforderlicher ICDfür Modul" Description="Beschreibung Modul" ENDO_OPS="Liste endoskopisch / Minimalinvasie OPS-Kodes" SurveilanceTime="Surveilancezeit in Tage nach der Operation" SchnittNahtZeit="Schnitt- Nahtzeit offen-chirurgisch, Überschreitung = + ein Risikopunkt" Endo_SchnittNahtZeit="Schnitt- Nahtzeit endoskopisch, Überschreitung = + ein Risikopunkt" REF_ASA="Standard-ASA-Wert bei Operation, Überschreitung = + ein Risikopunkt" REF_WKR="Standard Wundkontaminationsklasse bei Opretaion, Überschreitung = + ein Risikopunkt" WKL="Liste möglicher Wundkontaminationsklasse für das Modul" ANZ_WI="Anzahl möglicher Wunden (Wundinfektionen)" REF_JJV="Referenzdaten Start Jahr" REF_JJB="Referenzdaten Ende Jahr" Ref_UDT="Referenz Vesion / veröffentlicht">
+        <Trigger OPS="zulässiger OPS-Kodes für Modul" Excl="nicht zulässige OPS Kodes für Modul " Incl="neben Trigger OPS erforderliche OPS Kodes für Modul " Hinweis="Hinweis zu OPS-Kodes" />
+      </Modul>
+    </Nodes>
+  </PART>
+  <Module Year="2022">
+    <Modul Name="APPE" StartAlter="18" bisAlter="129" Description="Appendektomie" ENDO_OPS="5-470.1" SurveilanceTime="30" SchnittNahtZeit="103" Endo_SchnittNahtZeit="56" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-470.2" Text="Appendektomie: Umsteigen laparoskopisch - offen chirurgisch" />
+      <Trigger OPS="5-470.0" Text="Appendektomie: Offen chirurgisch" />
+      <Trigger OPS="5-470.1_" Text="Appendektomie: Laparoskopisch " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="APPE_KI" StartAlter="0" bisAlter="17" Description="Appendektomie - Kinderchirurgie" ENDO_OPS="5-470.1" SurveilanceTime="30" SchnittNahtZeit="94" Endo_SchnittNahtZeit="67" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-470.0" Text="Appendektomie: Offen chirurgisch" />
+      <Trigger OPS="5-470.2" Text="Appendektomie: Umsteigen laparoskopisch - offen chirurgisch" />
+      <Trigger OPS="5-470.1_" Text="Appendektomie: Laparoskopisch " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="ART" Description="Arthroskopische Eingriffe am Kniegelenk " SurveilanceTime="30" SchnittNahtZeit="59" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-812.c" Text="Arthroskopische Operation am Gelenkknorpel und an den Menisken: Implantation eines künstlichen Meniskus" />
+      <Trigger OPS="5-819._h" Text="Andere arthroskopische Operationen " Hinweis="alle 5-Steller mit 6.Stelle =h" />
+      <Trigger OPS="5-815_" Text="Arthroskopische Entfernung und arthroskopischer Wechsel eines Bandersatzes am Kniegelenk " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-813_" Text="Arthroskopische Refixation und Plastik am Kapselbandapparat des Kniegelenkes " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-812.d" Text="Arthroskopische Operation am Gelenkknorpel und an den Menisken: Entfernung eines künstlichen Meniskus" />
+      <Trigger OPS="5-812.7" Text="Arthroskopische Operation am Gelenkknorpel und an den Menisken: Meniskusrefixation" />
+      <Trigger OPS="5-812.6" Text="Arthroskopische Operation am Gelenkknorpel und an den Menisken: Meniskusresektion, total" />
+      <Trigger OPS="5-812.5" Text="Arthroskopische Operation am Gelenkknorpel und an den Menisken: Meniskusresektion, partiell" />
+      <Trigger OPS="5-812._h" Text="Arthroskopische Operation am Gelenkknorpel und an den Menisken " Hinweis="alle 5-Steller mit 6.Stelle =h" />
+      <Trigger OPS="5-811._h" Text="Arthroskopische Operation an der Synovialis " Hinweis="alle 5-Steller mit 6.Stelle =h" />
+      <Trigger OPS="5-810._h" Text="Arthroskopische Gelenkoperation " Hinweis="alle 5-Steller mit 6.Stelle =h" />
+      <Trigger OPS="5-812.p" Text="Arthroskopische Operation am Gelenkknorpel und an den Menisken: Meniskustransplantation" />
+    </Modul>
+    <Modul Name="CARD" Description="Operationen am Herzen" ENDO_OPS="5-35a.06;5-35a.11;5-35a.33;5-35a.42" SurveilanceTime="90" SchnittNahtZeit="258" Endo_SchnittNahtZeit="202" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-351_" Excl="5-36" Text="Ersatz von Herzklappen durch Prothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-350.X" Excl="5-36" Text="Valvulotomie: Sonstige" />
+      <Trigger OPS="5-350.5" Excl="5-36" Text="Valvulotomie: Pulmonalklappe, offen" />
+      <Trigger OPS="5-350.3" Excl="5-36" Text="Valvulotomie: Mitralklappe, offen" />
+      <Trigger OPS="5-352_" Excl="5-36" Text="Wechsel von Herzklappenprothesen " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-350.y" Excl="5-36" Text="Valvulotomie: N.n.bez." />
+      <Trigger OPS="5-350.1" Excl="5-36" Text="Valvulotomie: Aortenklappe, offen" />
+      <Trigger OPS="5-350.7" Excl="5-36" Text="Valvulotomie: Trikuspidalklappe, offen" />
+      <Trigger OPS="5-354_" Excl="5-36" Text="Andere Operationen an Herzklappen " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-353_" Excl="5-36" Text="Valvuloplastik " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-35a.42" Excl="5-36" Text="Minimalinvasive Operationen an Herzklappen: Mitralklappenrekonstruktion: Mitralklappensegelplastik, transapikal" />
+      <Trigger OPS="5-35a.33" Excl="5-36" Text="Minimalinvasive Operationen an Herzklappen: Implantation eines Mitralklappenersatzes: Transapikal" />
+      <Trigger OPS="5-35a.11" Excl="5-36" Text="Minimalinvasive Operationen an Herzklappen: Implantation eines Pulmonalklappenersatzes: Transapikal" />
+      <Trigger OPS="5-35a.06" Excl="5-36" Text="Minimalinvasive Operationen an Herzklappen: Implantation eines Aortenklappenersatzes: Transapikal" />
+    </Modul>
+    <Modul Name="CHOL" Description="Cholezystektomie" ENDO_OPS="5-511.1" SurveilanceTime="30" SchnittNahtZeit="129" Endo_SchnittNahtZeit="77" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-511.0_" Text="Cholezystektomie: Einfach, offen chirurgisch " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-511.2_" Text="Cholezystektomie: Einfach, Umsteigen laparoskopisch - offen chirurgisch " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-511.1_" Text="Cholezystektomie: Einfach, laparoskopisch " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul ModulGruppe="COBY" Name="COBY_L" Description="Coronare Bypass-Operation-mit Entnahme von autologen Gefäßen an den Extremitäten" ENDO_OPS="5-362.1;5-362.2;5-362.4;5-362.5;5-362.7;5-362.8;5-362.a;5-362.b;5-362.d;5-362.e;5-362.g;5-362.h" SurveilanceTime="90" SchnittNahtZeit="244" Endo_SchnittNahtZeit="244" REF_ASA="2" REF_WKR="2" WKL="1,2,3,4" ANZ_WI="2" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-361._7" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =7" />
+      <Trigger OPS="5-361._8" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =8" />
+      <Trigger OPS="5-361._3" Incl="5-386.2;5-38b.2" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =3" />
+      <Trigger OPS="5-361._3" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =3" COM="betrifft COBY_L: zusätzlich wegen Inkongruenz OPS 301 und NRZ OP KISS Definition" />
+      <Trigger OPS="5-362._7" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass durch minimalinvasive Technik " Hinweis="alle 5-Steller mit 6.Stelle =7" />
+      <Trigger OPS="5-362._3" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass durch minimalinvasive Technik " Hinweis="alle 5-Steller mit 6.Stelle =3" COM="betrifft COBY_L: zusätzlich wegen Inkongruenz OPS 301 und NRZ OP KISS Definition" />
+      <Trigger OPS="5-362._3" Incl="5-386.2;5-38b.2" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass durch minimalinvasive Technik " Hinweis="alle 5-Steller mit 6.Stelle =3" />
+    </Modul>
+    <Modul ModulGruppe="COBY" Name="COBY_T" Description="Coronare Bypass-Operation- ohne Entnahme von autologen Gefäßen an den Extremitäten" ENDO_OPS="5-362.1;5-362.2;5-362.4;5-362.5;5-362.7;5-362.8;5-362.a;5-362.b;5-362.d;5-362.e;5-362.g;5-362.h" SurveilanceTime="90" SchnittNahtZeit="243" REF_ASA="2" REF_WKR="2" WKL="1,2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-361._x" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =x" />
+      <Trigger OPS="5-361._6" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =6" />
+      <Trigger OPS="5-363.4" Excl="5-35" Text="Andere Revaskularisation des Herzens: Revaskularisation mit freiem A. mammaria interna-Transplantat (IMA-Transplantat)" />
+      <Trigger OPS="5-361._3" Excl="5-35;5-386.2;5-38b.2" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =3" />
+      <Trigger OPS="5-361._5" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass " Hinweis="alle 5-Steller mit 6.Stelle =5" />
+      <Trigger OPS="5-362._x" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass durch minimalinvasive Technik " Hinweis="alle 5-Steller mit 6.Stelle =x" />
+      <Trigger OPS="5-362._6" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass durch minimalinvasive Technik " Hinweis="alle 5-Steller mit 6.Stelle =6" />
+      <Trigger OPS="5-362._5" Excl="5-35" Text="Anlegen eines aortokoronaren Bypass durch minimalinvasive Technik " Hinweis="alle 5-Steller mit 6.Stelle =5" />
+      <Trigger OPS="5-362._3" Excl="5-35;5-386.2;5-38b.2" Text="Anlegen eines aortokoronaren Bypass durch minimalinvasive Technik " Hinweis="alle 5-Steller mit 6.Stelle =3" />
+    </Modul>
+    <Modul Name="COLO" Description="Eingriffe am Kolon" ENDO_OPS="5-455._5;5-455._6;5-456.05;5-456.06;5-456.07" SurveilanceTime="30" SchnittNahtZeit="181" Endo_SchnittNahtZeit="185" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-455.6_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon descendens mit linker Flexur [Hemikolektomie links] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-456.0_" Excl="5-456.1;5-456.2" Text="(Totale) Kolektomie und Proktokolektomie: Kolektomie " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.d_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon transversum, Colon descendens mit linker Flexur und Colon sigmoideum [Hemikolektomie links mit Transversumresektion und Sigmaresektion] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.c_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon ascendens, transversum und descendens mit Coecum und rechter und linker Flexur [Hemikolektomie rechts und links mit Transversumresektion] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.b_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon descendens und Colon sigmoideum " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.0_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Segmentresektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.7_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Sigmaresektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.5_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon transversum " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.4_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon ascendens mit Coecum und rechter Flexur [Hemikolektomie rechts] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.3_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Zäkumresektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.2_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Ileozäkalresektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.1_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Multiple Segmentresektionen " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.a_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon descendens mit linker Flexur und Colon transversum [Hemikolektomie links mit Transversumresektion] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-455.9_" Excl="5-456.1;5-456.2" Text="Partielle Resektion des Dickdarmes: Resektion des Colon ascendens mit Coecum und rechter Flexur und Colon transversum [Hemikolektomie rechts mit Transversumresektion] " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul ModulGruppe="FPF" Name="FPF_G" Description="geschlossene Reposition bei Fraktur des proximalen Femurs " SurveilanceTime="90" SchnittNahtZeit="59" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-790._e" Text="Geschlossene Reposition einer Fraktur oder Epiphysenlösung mit Osteosynthese " Hinweis="alle 5-Steller mit 6.Stelle =e" />
+      <Trigger OPS="5-790._f" Text="Geschlossene Reposition einer Fraktur oder Epiphysenlösung mit Osteosynthese " Hinweis="alle 5-Steller mit 6.Stelle =f" />
+    </Modul>
+    <Modul ModulGruppe="FPF" Name="FPF_O" Description="offene Reposition bei Fraktur des proximalen Femurs " SurveilanceTime="90" SchnittNahtZeit="113" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-794._e" Text="Offene Reposition einer Mehrfragment-Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =e" />
+      <Trigger OPS="5-794._f" Text="Offene Reposition einer Mehrfragment-Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =f" />
+      <Trigger OPS="5-793._e" Text="Offene Reposition einer einfachen Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =e" />
+      <Trigger OPS="5-793._f" Text="Offene Reposition einer einfachen Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =f" />
+    </Modul>
+    <Modul Name="GC_ABD" Description="Eingr. an Aorta abdominalis / Aa. iliacae" SurveilanceTime="90" SchnittNahtZeit="200" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-393.41" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. iliaca und viszerale Arterien: Ilioiliakal" />
+      <Trigger OPS="5-384.72" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, infrarenal: Mit Rohrprothese bei Aneurysma" />
+      <Trigger OPS="5-384.73" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, infrarenal: Mit Bifurkationsprothese biiliakal" />
+      <Trigger OPS="5-384.74" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, infrarenal: Mit Bifurkationsprothese biiliakal bei Aneurysma" />
+      <Trigger OPS="5-384.x1" Text="Resektion und Ersatz (Interposition) an der Aorta: Sonstige: Mit Rohrprothese" />
+      <Trigger OPS="5-384.x2" Text="Resektion und Ersatz (Interposition) an der Aorta: Sonstige: Mit Rohrprothese bei Aneurysma" />
+      <Trigger OPS="5-384.x3" Text="Resektion und Ersatz (Interposition) an der Aorta: Sonstige: Mit Bifurkationsprothese biiliakal" />
+      <Trigger OPS="5-384.x4" Text="Resektion und Ersatz (Interposition) an der Aorta: Sonstige: Mit Bifurkationsprothese biiliakal bei Aneurysma" />
+      <Trigger OPS="5-386.33" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Aorta: Aorta abdominalis" />
+      <Trigger OPS="5-386.5_" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Arterien abdominal und pelvin " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-388.33" Text="Naht von Blutgefäßen: Aorta: Aorta abdominalis" />
+      <Trigger OPS="5-388.5_" Text="Naht von Blutgefäßen: Arterien abdominal und pelvin " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-397.5_" Text="Andere plastische Rekonstruktion von Blutgefäßen: Arterien abdominal und pelvin " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-393.33" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Aorta: Aortoiliakal" />
+      <Trigger OPS="5-395.33" Text="Patchplastik an Blutgefäßen: Aorta: Aorta abdominalis" />
+      <Trigger OPS="5-395.52" Text="Patchplastik an Blutgefäßen: Arterien abdominal und pelvin: A. iliaca n.n.bez." />
+      <Trigger OPS="5-395.53" Text="Patchplastik an Blutgefäßen: Arterien abdominal und pelvin: A. iliaca communis" />
+      <Trigger OPS="5-395.54" Text="Patchplastik an Blutgefäßen: Arterien abdominal und pelvin: A. iliaca externa" />
+      <Trigger OPS="5-395.55" Text="Patchplastik an Blutgefäßen: Arterien abdominal und pelvin: A. iliaca interna" />
+      <Trigger OPS="5-395.5x" Text="Patchplastik an Blutgefäßen: Arterien abdominal und pelvin: Sonstige" />
+      <Trigger OPS="5-396.5_" Text="Transposition von Blutgefäßen: Arterien abdominal und pelvin " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-397.33" Text="Andere plastische Rekonstruktion von Blutgefäßen: Aorta: Aorta abdominalis" />
+      <Trigger OPS="5-384.71" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, infrarenal: Mit Rohrprothese" />
+      <Trigger OPS="5-384.61" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, suprarenal: Mit Rohrprothese" />
+      <Trigger OPS="5-393.32" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Aorta: Aortoaortal" />
+      <Trigger OPS="5-380.53" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien abdominal und pelvin: A. iliaca communis" />
+      <Trigger OPS="5-380.33" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Aorta: Aorta abdominalis" />
+      <Trigger OPS="5-384.63" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, suprarenal: Mit Bifurkationsprothese biiliakal" />
+      <Trigger OPS="5-380.52" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien abdominal und pelvin: A. iliaca n.n.bez." />
+      <Trigger OPS="5-384.64" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, suprarenal: Mit Bifurkationsprothese biiliakal bei Aneurysma" />
+      <Trigger OPS="5-380.54" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien abdominal und pelvin: A. iliaca externa" />
+      <Trigger OPS="5-380.55" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien abdominal und pelvin: A. iliaca interna" />
+      <Trigger OPS="5-380.5x" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien abdominal und pelvin: Sonstige" />
+      <Trigger OPS="5-381.33" Text="Endarteriektomie: Aorta: Aorta abdominalis" />
+      <Trigger OPS="5-381.51" Text="Endarteriektomie: Arterien abdominal und pelvin: Aa. lumbales" />
+      <Trigger OPS="5-381.52" Text="Endarteriektomie: Arterien abdominal und pelvin: A. iliaca n.n.bez." />
+      <Trigger OPS="5-381.53" Text="Endarteriektomie: Arterien abdominal und pelvin: A. iliaca communis" />
+      <Trigger OPS="5-381.54" Text="Endarteriektomie: Arterien abdominal und pelvin: A. iliaca externa" />
+      <Trigger OPS="5-384.62" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, suprarenal: Mit Rohrprothese bei Aneurysma" />
+      <Trigger OPS="5-381.5x" Text="Endarteriektomie: Arterien abdominal und pelvin: Sonstige" />
+      <Trigger OPS="5-382.33" Text="Resektion von Blutgefäßen mit Reanastomosierung: Aorta: Aorta abdominalis" />
+      <Trigger OPS="5-382.5_" Text="Resektion von Blutgefäßen mit Reanastomosierung: Arterien abdominal und pelvin " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-383.5_" Text="Resektion und Ersatz (Interposition) von (Teilen von) Blutgefäßen: Arterien abdominal und pelvin " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-384.51" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, n.n.bez.: Mit Rohrprothese" />
+      <Trigger OPS="5-384.52" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, n.n.bez.: Mit Rohrprothese bei Aneurysma" />
+      <Trigger OPS="5-384.53" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, n.n.bez.: Mit Bifurkationsprothese biiliakal" />
+      <Trigger OPS="5-384.54" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, n.n.bez.: Mit Bifurkationsprothese biiliakal bei Aneurysma" />
+      <Trigger OPS="5-380.51" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien abdominal und pelvin: Aa. lumbales" />
+      <Trigger OPS="5-381.55" Text="Endarteriektomie: Arterien abdominal und pelvin: A. iliaca interna" />
+    </Modul>
+    <Modul Name="GC_CAR" Description="Carotisgabelrekonstruktion" SurveilanceTime="90" SchnittNahtZeit="113" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-395.01" Text="Patchplastik an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-395.00" Text="Patchplastik an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-393.03" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis - A. vertebralis" />
+      <Trigger OPS="5-393.02" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis - A. subclavia" />
+      <Trigger OPS="5-393.01" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis - A. carotis" />
+      <Trigger OPS="5-393.00" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis" />
+      <Trigger OPS="5-395.02" Text="Patchplastik an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-388.02" Text="Naht von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-397.01" Text="Andere plastische Rekonstruktion von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-388.03" Text="Naht von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-395.03" Text="Patchplastik an Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-396.00" Text="Transposition von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-396.01" Text="Transposition von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-396.02" Text="Transposition von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-397.00" Text="Andere plastische Rekonstruktion von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-397.02" Text="Andere plastische Rekonstruktion von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-397.03" Text="Andere plastische Rekonstruktion von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-388.01" Text="Naht von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-383.03" Text="Resektion und Ersatz (Interposition) von (Teilen von) Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-396.03" Text="Transposition von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-381.00" Text="Endarteriektomie: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-380.00" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-388.00" Text="Naht von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-386.01" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-380.01" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-380.03" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-381.01" Text="Endarteriektomie: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-381.02" Text="Endarteriektomie: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-381.03" Text="Endarteriektomie: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-382.00" Text="Resektion von Blutgefäßen mit Reanastomosierung: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-382.01" Text="Resektion von Blutgefäßen mit Reanastomosierung: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-382.03" Text="Resektion von Blutgefäßen mit Reanastomosierung: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-383.00" Text="Resektion und Ersatz (Interposition) von (Teilen von) Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-383.01" Text="Resektion und Ersatz (Interposition) von (Teilen von) Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis communis mit Sinus caroticus" />
+      <Trigger OPS="5-383.02" Text="Resektion und Ersatz (Interposition) von (Teilen von) Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-386.03" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Arterien Kopf, extrakraniell, und Hals: A. carotis externa" />
+      <Trigger OPS="5-386.00" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Arterien Kopf, extrakraniell, und Hals: A. carotis n.n.bez." />
+      <Trigger OPS="5-382.02" Text="Resektion von Blutgefäßen mit Reanastomosierung: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-380.02" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+      <Trigger OPS="5-386.02" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Arterien Kopf, extrakraniell, und Hals: A. carotis interna extrakraniell" />
+    </Modul>
+    <Modul Name="GC_EXT" Description="Arterielle Rekonstruktion - untere Extremität" SurveilanceTime="90" SchnittNahtZeit="197" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-393.38" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Aorta: Aortopopliteal" />
+      <Trigger OPS="5-393.52" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. femoralis: Femoropopliteal n.n.bez." />
+      <Trigger OPS="5-393.51" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. femoralis: Femorofemoral" />
+      <Trigger OPS="5-393.47" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. iliaca und viszerale Arterien: Obturator-Bypass, extraanatomisch" />
+      <Trigger OPS="5-393.46" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. iliaca und viszerale Arterien: Iliocrural" />
+      <Trigger OPS="5-393.45" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. iliaca und viszerale Arterien: Iliopopliteal, unterhalb des Kniegelenkes" />
+      <Trigger OPS="5-393.44" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. iliaca und viszerale Arterien: Iliopopliteal, oberhalb des Kniegelenkes" />
+      <Trigger OPS="5-386.7_" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Arterien Oberschenkel " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-393.42" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. iliaca und viszerale Arterien: Iliofemoral" />
+      <Trigger OPS="5-393.36" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Aorta: Aortofemoral" />
+      <Trigger OPS="5-393.35" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Aorta: Aortoiliofemoral" />
+      <Trigger OPS="5-393.53" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. femoralis: Femoropopliteal, oberhalb des Kniegelenkes" />
+      <Trigger OPS="5-386.8_" Text="Andere Exzision von (erkrankten) Blutgefäßen und Transplantatentnahme: Arterien Unterschenkel und Fuß " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-395.7x" Text="Patchplastik an Blutgefäßen: Arterien Oberschenkel: Sonstige" />
+      <Trigger OPS="5-393.43" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. iliaca und viszerale Arterien: Iliopopliteal n.n.bez." />
+      <Trigger OPS="5-395.72" Text="Patchplastik an Blutgefäßen: Arterien Oberschenkel: A. poplitea" />
+      <Trigger OPS="5-397.7_" Text="Andere plastische Rekonstruktion von Blutgefäßen: Arterien Oberschenkel " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-396.8_" Text="Transposition von Blutgefäßen: Arterien Unterschenkel und Fuß " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-396.7_" Text="Transposition von Blutgefäßen: Arterien Oberschenkel " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-395.8x" Text="Patchplastik an Blutgefäßen: Arterien Unterschenkel und Fuß: Sonstige" />
+      <Trigger OPS="5-395.84" Text="Patchplastik an Blutgefäßen: Arterien Unterschenkel und Fuß: A. fibularis" />
+      <Trigger OPS="5-395.83" Text="Patchplastik an Blutgefäßen: Arterien Unterschenkel und Fuß: A. tibialis posterior" />
+      <Trigger OPS="5-395.71" Text="Patchplastik an Blutgefäßen: Arterien Oberschenkel: A. profunda femoris" />
+      <Trigger OPS="5-382.7_" Text="Resektion von Blutgefäßen mit Reanastomosierung: Arterien Oberschenkel " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-393.54" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. femoralis: Femoropopliteal, unterhalb des Kniegelenkes" />
+      <Trigger OPS="5-384.x6" Text="Resektion und Ersatz (Interposition) an der Aorta: Sonstige: Mit Bifurkationsprothese bifemoral bei Aneurysma" />
+      <Trigger OPS="5-395.70" Text="Patchplastik an Blutgefäßen: Arterien Oberschenkel: A. femoralis" />
+      <Trigger OPS="5-393.7" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: Arterien Unterschenkel" />
+      <Trigger OPS="5-393.62" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. poplitea: Popliteopedal" />
+      <Trigger OPS="5-393.61" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. poplitea: Popliteocrural" />
+      <Trigger OPS="5-393.56" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. femoralis: Femoropedal" />
+      <Trigger OPS="5-395.82" Text="Patchplastik an Blutgefäßen: Arterien Unterschenkel und Fuß: A. dorsalis pedis" />
+      <Trigger OPS="5-380.80" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: A. tibialis anterior" />
+      <Trigger OPS="5-380.8x" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: Sonstige" />
+      <Trigger OPS="5-380.86" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: A. plantaris lateralis" />
+      <Trigger OPS="5-380.85" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: A. plantaris medialis" />
+      <Trigger OPS="5-380.84" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: A. fibularis" />
+      <Trigger OPS="5-380.83" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: A. tibialis posterior" />
+      <Trigger OPS="5-383.7_" Text="Resektion und Ersatz (Interposition) von (Teilen von) Blutgefäßen: Arterien Oberschenkel " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-380.81" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: Aa. recurrentes" />
+      <Trigger OPS="5-381.72" Text="Endarteriektomie: Arterien Oberschenkel: A. poplitea" />
+      <Trigger OPS="5-380.7x" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Oberschenkel: Sonstige" />
+      <Trigger OPS="5-380.72" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Oberschenkel: A. poplitea" />
+      <Trigger OPS="5-380.71" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Oberschenkel: A. profunda femoris" />
+      <Trigger OPS="5-380.70" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Oberschenkel: A. femoralis" />
+      <Trigger OPS="5-393.57" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. femoralis: Femorofemoral, extraanatomisch" />
+      <Trigger OPS="5-397.8_" Text="Andere plastische Rekonstruktion von Blutgefäßen: Arterien Unterschenkel und Fuß " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-380.82" Text="Inzision, Embolektomie und Thrombektomie von Blutgefäßen: Arterien Unterschenkel und Fuß: A. dorsalis pedis" />
+      <Trigger OPS="5-381.8x" Text="Endarteriektomie: Arterien Unterschenkel und Fuß: Sonstige" />
+      <Trigger OPS="5-384.76" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, infrarenal: Mit Bifurkationsprothese bifemoral bei Aneurysma" />
+      <Trigger OPS="5-384.75" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, infrarenal: Mit Bifurkationsprothese bifemoral" />
+      <Trigger OPS="5-384.66" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, suprarenal: Mit Bifurkationsprothese bifemoral bei Aneurysma" />
+      <Trigger OPS="5-384.65" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, suprarenal: Mit Bifurkationsprothese bifemoral" />
+      <Trigger OPS="5-384.56" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, n.n.bez.: Mit Bifurkationsprothese bifemoral bei Aneurysma" />
+      <Trigger OPS="5-384.55" Text="Resektion und Ersatz (Interposition) an der Aorta: Aorta abdominalis, n.n.bez.: Mit Bifurkationsprothese bifemoral" />
+      <Trigger OPS="5-381.70" Text="Endarteriektomie: Arterien Oberschenkel: A. femoralis" />
+      <Trigger OPS="5-382.8_" Text="Resektion von Blutgefäßen mit Reanastomosierung: Arterien Unterschenkel und Fuß " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-381.71" Text="Endarteriektomie: Arterien Oberschenkel: A. profunda femoris" />
+      <Trigger OPS="5-381.84" Text="Endarteriektomie: Arterien Unterschenkel und Fuß: A. fibularis" />
+      <Trigger OPS="5-381.83" Text="Endarteriektomie: Arterien Unterschenkel und Fuß: A. tibialis posterior" />
+      <Trigger OPS="5-381.82" Text="Endarteriektomie: Arterien Unterschenkel und Fuß: A. dorsalis pedis" />
+      <Trigger OPS="5-381.80" Text="Endarteriektomie: Arterien Unterschenkel und Fuß: A. tibialis anterior" />
+      <Trigger OPS="5-381.7x" Text="Endarteriektomie: Arterien Oberschenkel: Sonstige" />
+      <Trigger OPS="5-384.x5" Text="Resektion und Ersatz (Interposition) an der Aorta: Sonstige: Mit Bifurkationsprothese bifemoral" />
+      <Trigger OPS="5-383.8_" Text="Resektion und Ersatz (Interposition) von (Teilen von) Blutgefäßen: Arterien Unterschenkel und Fuß " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-393.55" Text="Anlegen eines anderen Shuntes und Bypasses an Blutgefäßen: A. femoralis: Femorocrural" />
+    </Modul>
+    <Modul Name="HALLUX" Description="Korrektur einer Hallux valgus Deformität, Fuß" SurveilanceTime="30" SchnittNahtZeit="74" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-788.00" Text="Operationen an Metatarsale und Phalangen des Fußes: Resektion (Exostose): Os metatarsale I" />
+      <Trigger OPS="5-808.b0" Text="Offen chirurgische Arthrodese: Zehengelenk: Großzehengrundgelenk" />
+      <Trigger OPS="5-808.b7" Text="Offen chirurgische Arthrodese: Zehengelenk: Großzehengrundgelenk, Reoperation bei Rezidiv" />
+      <Trigger OPS="5-788.51" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, Doppelosteotomie" />
+      <Trigger OPS="5-788.5c" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, distal" />
+      <Trigger OPS="5-788.5d" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, proximal" />
+      <Trigger OPS="5-788.5e" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, mehrdimensionale Osteotomie" />
+      <Trigger OPS="5-788.5g" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, proximal, Reoperation bei Rezidiv" />
+      <Trigger OPS="5-788.5h" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, Doppelosteotomie, Reoperation bei Rezidiv" />
+      <Trigger OPS="5-788.5j" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, mehrdimensionale Osteotomie, Reoperation bei Rezidiv" />
+      <Trigger OPS="5-788.60" Text="Operationen an Metatarsale und Phalangen des Fußes: Arthroplastik: Metatarsophalangealgelenk, Digitus I" />
+      <Trigger OPS="5-808.a4" Text="Offen chirurgische Arthrodese: Fußwurzel und/oder Mittelfuß: Ein Gelenkfach" />
+      <Trigger OPS="5-808.a5" Text="Offen chirurgische Arthrodese: Fußwurzel und/oder Mittelfuß: Zwei Gelenkfächer" />
+      <Trigger OPS="5-788.5f" Text="Operationen an Metatarsale und Phalangen des Fußes: Osteotomie: Os metatarsale I, distal, Reoperation bei Rezidiv" />
+      <Trigger OPS="5-808.aa" Text="Offen chirurgische Arthrodese: Fußwurzel und/oder Mittelfuß: Zwei Gelenkfächer, Reoperation bei Rezidiv" />
+      <Trigger OPS="5-808.a9" Text="Offen chirurgische Arthrodese: Fußwurzel und/oder Mittelfuß: Ein Gelenkfach, Reoperation bei Rezidiv" />
+    </Modul>
+    <Modul Name="HERN" Description="Leistenhernie" SurveilanceTime="90" SchnittNahtZeit="73" Endo_SchnittNahtZeit="75" REF_ASA="2" REF_WKR="2" WKL="1,2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-530_" Text="Verschluss einer Hernia inguinalis " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul ModulGruppe="HPRO" Name="HPRO_A" InclICD="M16" Description="Hüftendoprothese bei Arthrose " SurveilanceTime="90" SchnittNahtZeit="84" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-820.2_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Totalendoprothese, Sonderprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.x_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Sonstige " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.9_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Kurzschaft-Femurkopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.8_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Oberflächenersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.7_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Gelenkschnapp-Pfanne " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.3_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Femurkopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.5_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Gelenkpfannenstützschale " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.4_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Duokopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.0_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Totalendoprothese " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul ModulGruppe="HPRO" Name="HPRO_F" InclICD="S72" Description="Hüftendoprothese bei Fraktur " SurveilanceTime="90" SchnittNahtZeit="89" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-820.4_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Duokopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.7_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Gelenkschnapp-Pfanne " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.9_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Kurzschaft-Femurkopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.x_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Sonstige " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.5_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Gelenkpfannenstützschale " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.0_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Totalendoprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.3_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Femurkopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.2_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Totalendoprothese, Sonderprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.8_" Excl="5-787.e5;5-787.5f;5-787.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Oberflächenersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="HPRO_R" Description="Hüftendoprothese (Revisionseingriffe)" SurveilanceTime="90" SchnittNahtZeit="145" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-821.1_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer Femurkopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.4_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer nicht zementierten Totalendoprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.5_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer Totalendoprothese, hybrid (teilzementiert) " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.6_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer Totalendoprothese, Sonderprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.f_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer Duokopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.g_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer Oberflächenersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.j_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer schenkelhalserhaltenden Femurkopfprothese [Kurzschaft-Femurkopfprothese] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.2_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer Gelenkpfannenprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-821.0" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Revision (ohne Wechsel)" />
+      <Trigger OPS="5-821.3_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Hüftgelenk: Wechsel einer zementierten Totalendoprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.3_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Femurkopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.4_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Duokopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.5_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Gelenkpfannenstützschale " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.7_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Gelenkschnapp-Pfanne " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.8_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Oberflächenersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.9_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Kurzschaft-Femurkopfprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.X_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Sonstige " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.0_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Totalendoprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-820.2_" Incl="5-787.5e;5-787.5f;5-878.8e;5-787.8f" Text="Implantation einer Endoprothese am Hüftgelenk: Totalendoprothese, Sonderprothese " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul ModulGruppe="HYST" Name="HYST_A" Description="Abdominelle Hysterektomie (mit oder ohne Adnektomie) bei laparaskopischem oder offen chirurgischem Zugang " ENDO_OPS="5-682.02;5-682.12;5-682.21;5-682.x2;5-683._3" SurveilanceTime="30" SchnittNahtZeit="194" Endo_SchnittNahtZeit="124" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-682._0" Text="Subtotale Uterusexstirpation " Hinweis="alle 5-Steller mit 6.Stelle =0" />
+      <Trigger OPS="5-685.4_" Excl="5-683.4" Text="Radikale Uterusexstirpation: Totale mesometriale Resektion des Uterus [TMMR] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-685.2" Excl="5-683.4" Text="Radikale Uterusexstirpation: Mit paraaortaler Lymphadenektomie" />
+      <Trigger OPS="5-685.1" Excl="5-683.4" Text="Radikale Uterusexstirpation: Mit pelviner Lymphadenektomie" />
+      <Trigger OPS="5-685.03" Excl="5-683.4" Text="Radikale Uterusexstirpation: Ohne Lymphadenektomie: Umsteigen vaginal - offen chirurgisch" />
+      <Trigger OPS="5-685.00" Excl="5-683.4" Text="Radikale Uterusexstirpation: Ohne Lymphadenektomie: Offen chirurgisch (abdominal)" />
+      <Trigger OPS="5-683._5" Excl="5-683.4" Text="Uterusexstirpation [Hysterektomie] " Hinweis="alle 5-Steller mit 6.Stelle =5" />
+      <Trigger OPS="5-683._0" Excl="5-683.4" Text="Uterusexstirpation [Hysterektomie] " Hinweis="alle 5-Steller mit 6.Stelle =0" />
+      <Trigger OPS="5-682._4" Excl="5-683.4" Text="Subtotale Uterusexstirpation " Hinweis="alle 5-Steller mit 6.Stelle =4" />
+      <Trigger OPS="5-685.3" Excl="5-683.4" Text="Radikale Uterusexstirpation: Mit pelviner und paraaortaler Lymphadenektomie" />
+      <Trigger OPS="5-682._3" Excl="5-683.4" Text="Subtotale Uterusexstirpation " Hinweis="alle 5-Steller mit 6.Stelle =3" />
+      <Trigger OPS="5-683._4" Excl="5-683.4" Text="Uterusexstirpation [Hysterektomie] " Hinweis="alle 5-Steller mit 6.Stelle =4" />
+      <Trigger OPS="5-682.21" Excl="5-683.4" Text="Subtotale Uterusexstirpation: Hemihysterektomie (bei Uterus bicornis): Endoskopisch (laparoskopisch)" />
+      <Trigger OPS="5-682._2" Excl="5-683.4" Text="Subtotale Uterusexstirpation " Hinweis="alle 5-Steller mit 6.Stelle =2" />
+      <Trigger OPS="5-683._3" Excl="5-683.4" Text="Uterusexstirpation [Hysterektomie] " Hinweis="alle 5-Steller mit 6.Stelle =3" />
+    </Modul>
+    <Modul ModulGruppe="HYST" Name="HYST_V" Description="Hysterektomie mit vaginalem Zugang" SurveilanceTime="30" SchnittNahtZeit="110" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-685.02" Text="Radikale Uterusexstirpation: Ohne Lymphadenektomie: Vaginal, laparoskopisch assistiert" />
+      <Trigger OPS="5-685.01" Text="Radikale Uterusexstirpation: Ohne Lymphadenektomie: Vaginal" />
+      <Trigger OPS="5-682._5" Text="Subtotale Uterusexstirpation " Hinweis="alle 5-Steller mit 6.Stelle =5" />
+      <Trigger OPS="5-683._1" Text="Uterusexstirpation [Hysterektomie] " Hinweis="alle 5-Steller mit 6.Stelle =1" />
+      <Trigger OPS="5-683._2" Text="Uterusexstirpation [Hysterektomie] " Hinweis="alle 5-Steller mit 6.Stelle =2" />
+    </Modul>
+    <Modul Name="KPRO" Description="Knieendoprothese (Erstimplantation)" SurveilanceTime="90" SchnittNahtZeit="95" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-822.k_" Text="Implantation einer Endoprothese am Kniegelenk: Bikompartimentelle Teilgelenkersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-822.j_" Text="Implantation einer Endoprothese am Kniegelenk: Endoprothese mit erweiterter Beugefähigkeit " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-822.g_" Text="Implantation einer Endoprothese am Kniegelenk: Bikondyläre Oberflächenersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-822.9_" Text="Implantation einer Endoprothese am Kniegelenk: Sonderprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-822.0_" Text="Implantation einer Endoprothese am Kniegelenk: Unikondyläre Schlittenprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-822.h_" Text="Implantation einer Endoprothese am Kniegelenk: Femoral und tibial schaftverankerte Prothese " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="KPRO_R" Description="Knieendoprothese (Revisionseingriffe)" SurveilanceTime="90" SchnittNahtZeit="128" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-823.b_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Kniegelenk: Wechsel einer Endoprothese mit erweiterter Beugefähigkeit " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-823.f_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Kniegelenk: Wechsel einer bikompartimentellen Teilgelenkersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-823.4_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Kniegelenk: Wechsel einer Sonderprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-823.2_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Kniegelenk: Wechsel einer bikondylären Oberflächenersatzprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-823.1_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Kniegelenk: Wechsel einer unikondylären Schlittenprothese " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-823.0" Text="Revision, Wechsel und Entfernung einer Endoprothese am Kniegelenk: Revision (ohne Wechsel)" />
+      <Trigger OPS="5-823.k_" Text="Revision, Wechsel und Entfernung einer Endoprothese am Kniegelenk: Wechsel einer femoral und tibial schaftverankerten Prothese " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="KRAN" Description="Kraniotomie" SurveilanceTime="90" SchnittNahtZeit="198" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-015.3" Incl="5-010.0" Text="Exzision und Destruktion von erkranktem intrakraniellem Gewebe: Hirnhäute, Tumorgewebe ohne Infiltration von intrakraniellem Gewebe" />
+      <Trigger OPS="5-013.1" Incl="5-010.0" Text="Inzision von Gehirn und Hirnhäuten: Entleerung eines subduralen Hämatoms" />
+      <Trigger OPS="5-013.3" Incl="5-010.0" Text="Inzision von Gehirn und Hirnhäuten: Drainage intrazerebraler Flüssigkeit" />
+      <Trigger OPS="5-013.4_" Incl="5-010.0" Text="Inzision von Gehirn und Hirnhäuten: Entleerung eines intrazerebralen Hämatoms " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-015.4" Incl="5-010.0" Text="Exzision und Destruktion von erkranktem intrakraniellem Gewebe: Hirnhäute, Tumorgewebe mit Präparation von infiltriertem Nachbargewebe" />
+      <Trigger OPS="5-015.1" Incl="5-010.0" Text="Exzision und Destruktion von erkranktem intrakraniellem Gewebe: Intrazerebrales Tumorgewebe, nicht hirneigen" />
+      <Trigger OPS="5-015.0" Incl="5-010.0" Text="Exzision und Destruktion von erkranktem intrakraniellem Gewebe: Intrazerebrales Tumorgewebe, hirneigen" />
+      <Trigger OPS="5-015.2_" Incl="5-010.0" Text="Exzision und Destruktion von erkranktem intrakraniellem Gewebe: Intrazerebrales sonstiges erkranktes Gewebe " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-015.5" Incl="5-010.0" Text="Exzision und Destruktion von erkranktem intrakraniellem Gewebe: Hirnhäute, sonstiges erkranktes Gewebe" />
+    </Modul>
+    <Modul Name="LOBE" Description="Lobektomie der Lunge" ENDO_OPS="5-324.6;5-324.7;5-324.8" SurveilanceTime="30" SchnittNahtZeit="203" Endo_SchnittNahtZeit="215" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-324.21" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.32" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Mit bronchoplastischer Erweiterung" />
+      <Trigger OPS="5-324.a1" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.bx" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Sonstige" />
+      <Trigger OPS="5-324.b5" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Mit Bifurkationsresektion" />
+      <Trigger OPS="5-324.b4" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Mit bronchoplastischer und angioplastischer Erweiterung" />
+      <Trigger OPS="5-324.b3" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Mit angioplastischer Erweiterung" />
+      <Trigger OPS="5-324.b2" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Mit bronchoplastischer Erweiterung" />
+      <Trigger OPS="5-324.b1" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.a5" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Mit Bifurkationsresektion" />
+      <Trigger OPS="5-324.2x" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Sonstige" />
+      <Trigger OPS="5-324.a2" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Mit bronchoplastischer Erweiterung" />
+      <Trigger OPS="5-324.22" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Mit bronchoplastischer Erweiterung" />
+      <Trigger OPS="5-324.9X" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie mit radikaler Lymphadenektomie, thorakoskopisch: Sonstige" />
+      <Trigger OPS="5-324.91" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie mit radikaler Lymphadenektomie, thorakoskopisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.3x" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Sonstige" />
+      <Trigger OPS="5-324.34" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Mit bronchoplastischer und angioplastischer Erweiterung" />
+      <Trigger OPS="5-324.33" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Mit angioplastischer Erweiterung" />
+      <Trigger OPS="5-324.a4" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Mit bronchoplastischer und angioplastischer Erweiterung" />
+      <Trigger OPS="5-324.31" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie mit radikaler Lymphadenektomie, offen chirurgisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.23" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Mit angioplastischer Erweiterung" />
+      <Trigger OPS="5-324.a3" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Mit angioplastischer Erweiterung" />
+      <Trigger OPS="5-324.ax" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie ohne radikale Lymphadenektomie, offen chirurgisch: Sonstige" />
+      <Trigger OPS="5-324.81" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie ohne radikale Lymphadenektomie, thorakoskopisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.7x" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie, einseitig mit radikaler Lymphadenektomie, thorakoskopisch: Sonstige" />
+      <Trigger OPS="5-324.71" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie, einseitig mit radikaler Lymphadenektomie, thorakoskopisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.6X" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie, einseitig ohne radikale Lymphadenektomie, thorakoskopisch: Sonstige" />
+      <Trigger OPS="5-324.62" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie, einseitig ohne radikale Lymphadenektomie, thorakoskopisch: Mit bronchoplastischer Erweiterung" />
+      <Trigger OPS="5-324.61" Text="Einfache Lobektomie und Bilobektomie der Lunge: Lobektomie, einseitig ohne radikale Lymphadenektomie, thorakoskopisch: Ohne bronchoplastische oder angioplastische Erweiterung" />
+      <Trigger OPS="5-324.8x" Text="Einfache Lobektomie und Bilobektomie der Lunge: Bilobektomie ohne radikale Lymphadenektomie, thorakoskopisch: Sonstige" />
+    </Modul>
+    <Modul Name="LUMB" Description="Lumbale Bandscheiben OP" SurveilanceTime="30" SchnittNahtZeit="93" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-831.a" Incl="5-032.00;5-032.01;5-032.02;5-032.10;5-032.11;5-032.12;5-032.20;5-032.21;5-032.22;5-032.30;5-032.31;5-032.32;5-032.40;5-032.41;5-032.42" Excl="5-030;5-031" Text="Exzision von erkranktem Bandscheibengewebe: Entfernung eines freien Sequesters mit Endoskopie" />
+      <Trigger OPS="5-831.9" Incl="5-032.00;5-032.01;5-032.02;5-032.10;5-032.11;5-032.12;5-032.20;5-032.21;5-032.22;5-032.30;5-032.31;5-032.32;5-032.40;5-032.41;5-032.42" Excl="5-030;5-031" Text="Exzision von erkranktem Bandscheibengewebe: Entfernung eines freien Sequesters ohne Endoskopie" />
+      <Trigger OPS="5-831.2" Incl="5-032.00;5-032.01;5-032.02;5-032.10;5-032.11;5-032.12;5-032.20;5-032.21;5-032.22;5-032.30;5-032.31;5-032.32;5-032.40;5-032.41;5-032.42" Excl="5-030;5-031" Text="Exzision von erkranktem Bandscheibengewebe: Exzision einer Bandscheibe mit Radikulodekompression" />
+      <Trigger OPS="5-831.0" Incl="5-032.00;5-032.01;5-032.02;5-032.10;5-032.11;5-032.12;5-032.20;5-032.21;5-032.22;5-032.30;5-032.31;5-032.32;5-032.40;5-032.41;5-032.42" Excl="5-030;5-031" Text="Exzision von erkranktem Bandscheibengewebe: Exzision einer Bandscheibe" />
+    </Modul>
+    <Modul Name="MAST" Description="Eingriffe an der Mamma" SurveilanceTime="90" SchnittNahtZeit="92" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-870.a1" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Partielle Resektion: Defektdeckung durch Mobilisation und Adaptation von bis zu 25Â % des Brustgewebes (bis zu 1 Quadranten)" />
+      <Trigger OPS="5-870.a2" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Partielle Resektion: Defektdeckung durch Mobilisation und Adaptation von mehr als 25Â % des Brustgewebes (mehr als 1 Quadrant)" />
+      <Trigger OPS="5-870.a3" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Partielle Resektion: Defektdeckung durch tumoradaptierte Mastopexie" />
+      <Trigger OPS="5-870.a4" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Partielle Resektion: Defektdeckung durch lokale fasziokutane oder myokutane Lappenplastik aus dem brustumgebenden Haut- und Weichteilgewebe" />
+      <Trigger OPS="5-870.a5" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Partielle Resektion: Defektdeckung durch tumoradaptierte Mammareduktionsplastik" />
+      <Trigger OPS="5-870.a6" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Partielle Resektion: Defektdeckung durch gestielte Fernlappenplastik" />
+      <Trigger OPS="5-870.a7" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Partielle Resektion: Defektdeckung durch freie Fernlappenplastik mit mikrochirurgischem Gefäßanschluss" />
+      <Trigger OPS="5-872_" Text="(Modifizierte radikale) Mastektomie " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-874_" Text="Erweiterte (radikale) Mastektomie mit Resektion an den Mm. pectorales majores et minores und Thoraxwandteilresektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-877_" Text="Subkutane Mastektomie und hautsparende Mastektomieverfahren " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-884_" Text="Mammareduktionsplastik " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-885_" Text="Plastische Rekonstruktion der Mamma mit Haut- und Muskeltransplantation " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-870.91" Text="Partielle (brusterhaltende) Exzision der Mamma und Destruktion von Mammagewebe: Lokale Exzision: Defektdeckung durch Mobilisation und Adaptation von bis zu 25Â % des Brustgewebes (bis zu 1 Quadranten)" />
+    </Modul>
+    <Modul Name="NECK" Description="Neck dissection" SurveilanceTime="30" SchnittNahtZeit="353" REF_ASA="2" REF_WKR="2" WKL="1,2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-403.2_" Text="Radikale zervikale Lymphadenektomie [Neck dissection]: Radikal, modifiziert " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-403.1_" Text="Radikale zervikale Lymphadenektomie [Neck dissection]: Radikal " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-403.0_" Text="Radikale zervikale Lymphadenektomie [Neck dissection]: Selektiv (funktionell) " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="NEPH" Description="Nephrektomie" ENDO_OPS="5-553.03;5-553.13;5-553.23;5-553.x3;5-554.43;5-554.53;5-554.63;5-554.73;5-554.83;5-554.93;5-554.a3;5-554.b3;5-554.x3" SurveilanceTime="30" SchnittNahtZeit="174" Endo_SchnittNahtZeit="168" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-552.3" Excl="5-554.9" Text="Exzision und Destruktion von (erkranktem) Gewebe der Niere: Exzision, laparoskopisch oder retroperitoneoskopisch" />
+      <Trigger OPS="5-552.0" Excl="5-554.9" Text="Exzision und Destruktion von (erkranktem) Gewebe der Niere: Exzision, offen chirurgisch" />
+      <Trigger OPS="5-554_" Excl="5-554.9" Text="Nephrektomie " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-553_" Excl="5-554.9" Text="Partielle Resektion der Niere " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="OSG" Description="Eingriffe am oberen Sprunggelenk" SurveilanceTime="90" SchnittNahtZeit="106" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-793._r" Text="Offene Reposition einer einfachen Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =r" />
+      <Trigger OPS="5-793._n" Text="Offene Reposition einer einfachen Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =n" />
+      <Trigger OPS="5-794._n" Text="Offene Reposition einer Mehrfragment-Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =n" />
+      <Trigger OPS="5-79b._k" Text="Offene Reposition einer Gelenkluxation " Hinweis="alle 5-Steller mit 6.Stelle =k" />
+      <Trigger OPS="5-806.3" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Naht der Syndesmose" />
+      <Trigger OPS="5-806.4" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Bandplastik des lateralen Bandapparates mit autogener Sehne" />
+      <Trigger OPS="5-806.5" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Bandplastik des lateralen Bandapparates mit Periostlappen oder ortsständigem Gewebe [Broström-Gould]" />
+      <Trigger OPS="5-806.6" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Bandplastik des lateralen Bandapparates mit alloplastischem Bandersatz" />
+      <Trigger OPS="5-806.7" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Fesselung der Peronealsehnen" />
+      <Trigger OPS="5-806.a" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Bandplastik der Syndesmose" />
+      <Trigger OPS="5-806.c" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Naht des lateralen Bandapparates" />
+      <Trigger OPS="5-806.d" Text="Offen chirurgische Refixation und Plastik am Kapselbandapparat des Sprunggelenkes: Naht des medialen Bandapparates" />
+      <Trigger OPS="5-794._r" Text="Offene Reposition einer Mehrfragment-Fraktur im Gelenkbereich eines langen Röhrenknochens " Hinweis="alle 5-Steller mit 6.Stelle =r" />
+    </Modul>
+    <Modul Name="PARO" Description="Parotidektomie" SurveilanceTime="30" SchnittNahtZeit="154" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-262.2_" Text="Resektion einer Speicheldrüse: Parotidektomie, komplett mit Resektion des N. facialis " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-262.3" Text="Resektion einer Speicheldrüse: Parotidektomie, komplett mit Resektion und Rekonstruktion des N. facialis" />
+      <Trigger OPS="5-262.1_" Text="Resektion einer Speicheldrüse: Parotidektomie, komplett mit Erhalt des N. facialis " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-262.0_" Text="Resektion einer Speicheldrüse: Parotidektomie, partiell " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="PRST" Description="Prostatektomie" ENDO_OPS="5-604.4;5-604.5" SurveilanceTime="30" SchnittNahtZeit="199" Endo_SchnittNahtZeit="220" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-604_" Text="Radikale Prostatovesikulektomie " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="REKT" Description="Eingriffe am Rektum" ENDO_OPS="5-456._5;5-456._6;5-456._7;5-484._5;5-484._6" SurveilanceTime="30" SchnittNahtZeit="243" Endo_SchnittNahtZeit="248" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-484.6_" Text="Rektumresektion unter Sphinktererhaltung: Tiefe anteriore Resektion mit peranaler Anastomose " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-456.1_" Text="(Totale) Kolektomie und Proktokolektomie: Proktokolektomie " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-484.5_" Text="Rektumresektion unter Sphinktererhaltung: Tiefe anteriore Resektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-484.1_" Text="Rektumresektion unter Sphinktererhaltung: Posteriore Manschettenresektion [Rectotomia posterior] " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-456.2_" Text="(Totale) Kolektomie und Proktokolektomie: Kolektomie mit Proktomukosektomie " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-484.3_" Text="Rektumresektion unter Sphinktererhaltung: Anteriore Resektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-484.2_" Text="Rektumresektion unter Sphinktererhaltung: Tubuläre Resektion unter Belassen des Paraproktiums " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-484.0_" Text="Rektumresektion unter Sphinktererhaltung: Anteriore Manschettenresektion " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="SECC" Description="Sectio Caesarea" SurveilanceTime="30" SchnittNahtZeit="45" REF_ASA="2" REF_WKR="2" WKL="2,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-749.0" Text="Andere Sectio caesarea: Resectio" />
+      <Trigger OPS="5-740_" Text="Klassische Sectio caesarea " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-742_" Text="Sectio caesarea extraperitonealis " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-749.1_" Text="Andere Sectio caesarea: Misgav-Ladach-Sectio " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-741_" Text="Sectio caesarea, suprazervikal und korporal " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="SPONDY" Description="Spondylodese" SurveilanceTime="90" SchnittNahtZeit="236" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-83b.5_" Text="Osteosynthese (dynamische Stabilisierung) an der Wirbelsäule: Durch Schrauben-Stab-System " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-83b.4_" Text="Osteosynthese (dynamische Stabilisierung) an der Wirbelsäule: Durch dorsales Schrauben-Platten-System " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-836.3_" Text="Spondylodese: Dorsal " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+    <Modul Name="STRIP" Description="Venöses Stripping" SurveilanceTime="30" SchnittNahtZeit="64" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-385.72" Text="Unterbindung, Exzision und Stripping von Varizen: Crossektomie und Stripping: V. saphena parva" />
+      <Trigger OPS="5-385.74" Text="Unterbindung, Exzision und Stripping von Varizen: Crossektomie und Stripping: Vv. saphenae magna et parva" />
+      <Trigger OPS="5-385.70" Text="Unterbindung, Exzision und Stripping von Varizen: Crossektomie und Stripping: V. saphena magna" />
+    </Modul>
+    <Modul Name="STRUM" Description="Schilddrüsen-Eingriffe" SurveilanceTime="30" SchnittNahtZeit="116" REF_ASA="2" REF_WKR="2" WKL="1,3,4" REF_JJV="2017" REF_JJB="2021" REF_UDT="Erstellungsdatum: 4.Mai 2022">
+      <Trigger OPS="5-063_" Text="Thyreoidektomie " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-062_" Text="Andere partielle Schilddrüsenresektion " Hinweis="alle terminalen OPS-Kodes" />
+      <Trigger OPS="5-061_" Text="Hemithyreoidektomie " Hinweis="alle terminalen OPS-Kodes" />
+    </Modul>
+  </Module>
+</Project>

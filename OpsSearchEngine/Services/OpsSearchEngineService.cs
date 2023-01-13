@@ -45,7 +45,7 @@ namespace OpsSearchEngine.Services
 					continue;
 				}
 
-				ChooseCorrectAgeModule(candidate, request.Age);
+				ChooseCorrectAgeModule(candidate.Modules, request.Age);
 
 				if (CandidateSuits(candidate.Includes, candidate.Excludes, request.OpsCodes))
 				{
@@ -97,19 +97,19 @@ namespace OpsSearchEngine.Services
 			return suits;
 		}
 
-		private void ChooseCorrectAgeModule(Node node, int age)
+		private void ChooseCorrectAgeModule(List<Modul> modules, int age)
 		{
-			if (node.Modules.Count == 1)
+			if (modules.Count == 1)
 			{
 				return;
 			}
 
-			if (!node.Modules.Any(x => x.StartAlter != 0 && x.BisAlter != 0))
+			if (!modules.Any(x => x.StartAlter != 0 && x.BisAlter != 0))
 			{
 				return;
 			}
 
-			node.Modules = node.Modules.Where(x => x.StartAlter >= age && x.BisAlter <= age).ToList();
+			modules = modules.Where(x => x.StartAlter >= age && x.BisAlter <= age).ToList();
 		}
 
 		private bool IsEndoOps(string opsCode, string moduleEndoOpses)
