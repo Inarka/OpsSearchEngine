@@ -47,14 +47,22 @@ namespace OpsSearchEngine.Services
 
 				ChooseCorrectAgeModule(candidate.Modules, request.Age);
 
-				if (CandidateSuits(candidate.Includes, candidate.Excludes, request.OpsCodes))
+				if (!CandidateSuits(candidate.Includes, candidate.Excludes, request.OpsCodes))
 				{
-					var moduleResponse = _mapper.Map<Modul, ModuleResponse>(candidate.Modules.FirstOrDefault());
-
-					moduleResponse.IsEndo = IsEndoOps(ops, candidate.Modules.FirstOrDefault().ENDOOPS);
-
-					response.Modules.Add(ops, moduleResponse);
+					continue;
 				}
+
+				var moduleResponse = _mapper.Map<Modul, ModuleResponse>(candidate.Modules.FirstOrDefault());
+
+				var endoOps = candidate.Modules.FirstOrDefault().ENDOOPS;
+
+				if (!string.IsNullOrEmpty(endoOps))
+				{
+					moduleResponse.IsEndo = IsEndoOps(ops, endoOps);
+				}
+
+				response.Modules.Add(ops, moduleResponse);
+
 			}
 
 			return response;
@@ -114,20 +122,26 @@ namespace OpsSearchEngine.Services
 
 		private bool IsEndoOps(string opsCode, string moduleEndoOpses)
 		{
-			if (moduleEndoOpses == null)
+			var endoOpsList = moduleEndoOpses.Split(';');
+
+			foreach (var endoOps in endoOpsList)
 			{
-				return false;
-			}
-
-			var regexList = moduleEndoOpses.Split(';').Select(x => x.Replace(".", "[.]").Replace("_", @"\S+"));
-
-			foreach (var endoOps in regexList)
-			{
-				var regex = new Regex(endoOps);
-
-				if (regex.IsMatch(opsCode))
+				if (endoOps.Contains('_'))
 				{
-					return true;
+					var regex = new Regex(endoOps.Replace(".", "[.]").Replace("_", @"\S+"));
+
+					if (regex.IsMatch(opsCode))
+					{
+						return true;
+					}
+				}
+
+				else
+				{
+					if (opsCode.StartsWith(endoOps))
+					{
+						return true;
+					}
 				}
 			}
 

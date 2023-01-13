@@ -59,26 +59,31 @@ namespace OpsSearchEngine.Services
 		}
 		public Node FindNode(Node root, string opsCode)
 		{
+			Node result = null;
+
+			int patternIndex = 0;
+			Node patternNode = null;
+
 			for (int i = 0; i < opsCode.Length; i++)
 			{
 				var symbol = opsCode[i];
-
-				//if (root.Terminal)
-				//{
-				//	result.Add(root);
-				//	break;
-				//}
-
-				//else
 				
 				if (root.Links.ContainsKey(symbol))
 				{
+					if (root.Links.ContainsKey('_'))
+					{
+						patternIndex = i;
+						patternNode = root.Links['_'];
+					}
+
 					root = root.Links[symbol];
 
 					if (root.Terminal)
 					{
-						return root;
+						result = root;
+						break;
 					}
+
 					continue;
 				}
 
@@ -90,11 +95,32 @@ namespace OpsSearchEngine.Services
 
 				else
 				{
-					return null;
+					result = null;
 				}
 			}
 
-			return null;
+			if (result == null && patternNode != null)
+			{
+				for (int i = patternIndex + 1; i < opsCode.Length; i++)
+				{
+					var symbol = opsCode[i];
+
+					if (patternNode.Links.ContainsKey(symbol))
+					{
+						patternNode = patternNode.Links[symbol];
+
+						if (patternNode.Terminal)
+						{
+							result = patternNode;
+							break;
+						}
+
+						continue;
+					}
+				}
+			}
+
+			return result;
 		}
 	}
 }
