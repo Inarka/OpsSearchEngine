@@ -28,7 +28,7 @@ namespace OpsSearchEngine.Models.XML
 		public List<Trigger> Triggers { get; set; }
 
 		[XmlAttribute(AttributeName = "ENDO_OPS")]
-		public string ENDOOPS { get; set; }
+		public string EndoOps { get; set; }
 
 		[XmlAttribute(AttributeName = "ModulGruppe")]
 		public string ModulGruppe { get; set; }
@@ -37,7 +37,7 @@ namespace OpsSearchEngine.Models.XML
 		public string Name { get; set; }
 
 		[XmlAttribute(AttributeName = "InclICD")]
-		public string InclICD { get; set; }
+		public string InclIcd { get; set; }
 
 		[XmlAttribute(AttributeName = "Description")]
 		public string Description { get; set; }
@@ -49,22 +49,22 @@ namespace OpsSearchEngine.Models.XML
 		public int SchnittNahtZeit { get; set; }
 
 		[XmlAttribute(AttributeName = "REF_ASA")]
-		public int REFASA { get; set; }
+		public int RefAsa { get; set; }
 
 		[XmlAttribute(AttributeName = "REF_WKR")]
-		public int REFWKR { get; set; }
+		public int RefWkr { get; set; }
 
 		[XmlAttribute(AttributeName = "WKL")]
-		public string WKL { get; set; }
+		public string Wkl { get; set; }
 
 		[XmlAttribute(AttributeName = "REF_JJV")]
-		public int REFJJV { get; set; }
+		public int RefJjw { get; set; }
 
 		[XmlAttribute(AttributeName = "REF_JJB")]
-		public int REFJJB { get; set; }
+		public int RefJjb { get; set; }
 
 		[XmlAttribute(AttributeName = "REF_UDT")]
-		public string REFUDT { get; set; }
+		public string RefUdt { get; set; }
 
 		[XmlAttribute(AttributeName = "StartAlter")]
 		public int StartAlter { get; set; }

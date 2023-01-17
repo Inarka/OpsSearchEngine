@@ -39,17 +39,12 @@ namespace OpsSearchEngine.Services
 						current = current.Links[symbol];
 					}
 
-					current.Modules.Add(module);
-
-					if (trigger.Excl != null)
+					current.ModuleInclExcls.Add(new ModuleInclExcl
 					{
-						current.Excludes.UnionWith(trigger.Excl.Split(";").ToList());
-					}
-
-					if (trigger.Incl != null)
-					{
-						current.Includes.UnionWith(trigger.Incl.Split(";").ToList());
-					}
+						ModulName = module.Name,
+						Includes = trigger.Incl?.Split(";").ToList(),
+						Excludes = trigger.Excl?.Split(";").ToList()
+					});
 
 					current.Terminal = true;
 				}

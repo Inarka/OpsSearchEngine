@@ -10,6 +10,7 @@ using Xunit;
 using OpsSearchEngine.Services.Mapping;
 using OpsSearchEngine.Services.Xml;
 using OpsSearchEngine.Models;
+using System.Linq;
 
 namespace UnitTests
 {
@@ -41,10 +42,10 @@ namespace UnitTests
 
 			// Assert
 			Assert.NotEmpty(modules.Modules);
-			Assert.True(modules.Modules["5-324.62"].IsEndo);
-			Assert.False(modules.Modules["5-874.2"].IsEndo);
-			Assert.Equal(103, modules.Modules["5-470.1"].SchnittNahtZeit);
-			Assert.True(modules.Modules["5-470.1"].IsEndo);
+			Assert.True(modules.Modules["5-324.62"].FirstOrDefault(x => x.Name == "LOBE")!.IsEndo);
+			Assert.False(modules.Modules["5-874.2"].FirstOrDefault(x => x.Name == "MAST")!.IsEndo);
+			Assert.Equal(103, modules.Modules["5-470.1"].FirstOrDefault(x => x.Name == "APPE")!.SchnittNahtZeit);
+			Assert.True(modules.Modules["5-470.1"].FirstOrDefault(x => x.Name == "APPE")!.IsEndo);
 		}
 	}
 }

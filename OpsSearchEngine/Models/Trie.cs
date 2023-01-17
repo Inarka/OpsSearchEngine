@@ -8,8 +8,13 @@ namespace OpsSearchEngine.Models
     {
         public Dictionary<char, Node> Links { get; set; } = new Dictionary<char, Node>();
         public bool Terminal { get; set; }
-        public List<Modul> Modules { get; set; } = new List<Modul>();
-        public HashSet<string> Excludes { get; set; } = new HashSet<string> ();
-        public HashSet<string> Includes { get; set; } = new HashSet<string> ();
+        public List<ModuleInclExcl> ModuleInclExcls { get; set; } = new List<ModuleInclExcl>();
+	}
+
+    public class ModuleInclExcl
+    {
+        public string ModulName { get; set; }
+		public List<string> Excludes { get; set; } = new List<string>();
+		public List<string> Includes { get; set; } = new List<string>();
 	}
 }

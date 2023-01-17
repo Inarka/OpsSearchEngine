@@ -3,7 +3,9 @@ using OpsSearchEngine.Interfaces;
 using OpsSearchEngine.Models;
 using OpsSearchEngine.Models.XML;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -15,6 +17,8 @@ namespace OpsSearchEngine.Services
 		private readonly IXmlDeserializer<Project> _xmlDeserializer;
 		private readonly ITrie _trie;
 		private readonly IMapper _mapper;
+
+		private ImmutableDictionary<string, Modul> _modules;
 
 		public OpsSearchEngineService(IXmlStringReader xmlReader, IXmlDeserializer<Project> xmlDeserializer, ITrie trie, IMapper mapper)
 		{
@@ -30,6 +34,8 @@ namespace OpsSearchEngine.Services
 
 			var project = _xmlDeserializer.Deserialize(input);
 
+			_modules = GetModules(project).ToImmutableDictionary();
+
 			var opsCodesTrieRoot = _trie.Build(project);
 
 			var response = new ModulesResponse();
@@ -43,90 +49,107 @@ namespace OpsSearchEngine.Services
 					continue;
 				}
 
-				ChooseCorrectAgeModule(candidate.Modules, request.Age);
+				ChooseCorrectAgeModule(candidate.ModuleInclExcls, request.Age);
 
-				if (!CandidateSuits(candidate.Includes, candidate.Excludes, request.OpsCodes))
+				ChooseCorrectInclExclModule(candidate.ModuleInclExcls, request.OpsCodes);
+
+				if (!candidate.ModuleInclExcls.Any())
 				{
 					continue;
 				}
 
-				var moduleResponse = _mapper.Map<Modul, ModuleResponse>(candidate.Modules.FirstOrDefault());
+				response.Modules.Add(ops, new List<ModuleResponse>());
 
-				var endoOps = candidate.Modules.FirstOrDefault().ENDOOPS;
-
-				if (!string.IsNullOrEmpty(endoOps))
+				foreach (var match in candidate.ModuleInclExcls)
 				{
-					moduleResponse.IsEndo = IsEndoOps(ops, endoOps);
+					var module = _modules[match.ModulName];
+
+					var moduleResponse = _mapper.Map<Modul, ModuleResponse>(module);
+
+					if (!string.IsNullOrEmpty(module.EndoOps))
+					{
+						moduleResponse.IsEndo = IsEndoOps(ops, module.EndoOps);
+					}
+
+					response.Modules[ops].Add(moduleResponse);
 				}
-
-				response.Modules.Add(ops, moduleResponse);
-
 			}
 
 			return response;
 		}
 
-		private bool CandidateSuits(HashSet<string> includes, HashSet<string> excludes, List<string> opsCodes)
+		private Dictionary<string, Modul> GetModules(Project project)
 		{
-			bool suits = false;
+			var result = new Dictionary<string, Modul>();
 
-			foreach (var ops in opsCodes)
+			foreach (var modul in project.Module.Moduls)
 			{
-				foreach (var exclude in excludes)
+				result.Add(modul.Name, modul);
+			}
+
+			return result;
+		}
+
+		private void ChooseCorrectInclExclModule(List<ModuleInclExcl> modules, List<string> opsCodes)
+		{		
+			foreach (var module in modules.ToList())
+			{
+				bool excludeMatches = false;
+
+				bool includeMatches = false;
+
+				foreach (var ops in opsCodes)
 				{
-					if (ops.StartsWith(exclude))
+					if (module.Excludes != null && PatternMatches(ops, module.Excludes))
 					{
-						return false;
+						excludeMatches = true;
+						break;
 					}
-				}
 
-				if (includes.Count == 0)
-				{
-					return true;
-				}
-
-				foreach (var include in includes)
-				{
-					if (ops.StartsWith(include))
+					if (module.Includes == null || PatternMatches(ops, module.Includes))
 					{
-						suits = true;
+						includeMatches = true;
 						break;
 					}
 				}
 
-				if (suits)
+				if (excludeMatches || !includeMatches)
 				{
-					break;
+					modules.Remove(module);
+					continue;
 				}
 			}
-
-			return suits;
 		}
 
-		private void ChooseCorrectAgeModule(List<Modul> modules, int age)
+		private void ChooseCorrectAgeModule(List<ModuleInclExcl> modules, int age)
 		{
 			if (modules.Count == 1)
 			{
 				return;
 			}
 
-			if (!modules.Any(x => x.StartAlter != 0 && x.BisAlter != 0))
+			if (!modules.Any(x => _modules[x.ModulName].StartAlter != 0 && _modules[x.ModulName].BisAlter != 0))
 			{
 				return;
 			}
 
-			modules = modules.Where(x => x.StartAlter <= age && x.BisAlter >= age).ToList();
+			modules = modules.Where(x => _modules[x.ModulName].StartAlter <= age && _modules[x.ModulName].BisAlter >= age).ToList();
 		}
 
 		private bool IsEndoOps(string opsCode, string moduleEndoOpses)
 		{
 			var endoOpsList = moduleEndoOpses.Split(';');
 
-			foreach (var endoOps in endoOpsList)
+			return PatternMatches(opsCode, endoOpsList.ToList());
+		}
+
+		private bool PatternMatches(string opsCode, List<string> inputPatternOpses)
+		{
+			foreach (var inputOps in inputPatternOpses)
 			{
-				if (endoOps.Contains('_'))
+				if (inputOps.Contains('_'))
 				{
-					var regex = new Regex(endoOps.Replace(".", "[.]").Replace("_", @"\S+"));
+					var regex = new Regex(inputOps.Replace(".", "[.]").Replace("_", @"\S+"));
 
 					if (regex.IsMatch(opsCode))
 					{
@@ -136,7 +159,7 @@ namespace OpsSearchEngine.Services
 
 				else
 				{
-					if (opsCode.StartsWith(endoOps))
+					if (opsCode.StartsWith(inputOps))
 					{
 						return true;
 					}
