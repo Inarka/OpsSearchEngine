@@ -47,5 +47,43 @@ namespace UnitTests
 			Assert.Equal(103, modules.Modules["5-470.1"].FirstOrDefault(x => x.Name == "APPE")!.SchnittNahtZeit);
 			Assert.True(modules.Modules["5-470.1"].FirstOrDefault(x => x.Name == "APPE")!.IsEndo);
 		}
+
+		[Fact]
+		public async Task FindModules_IfHasMoreThanOneModule_ShouldReturnAllModules()
+		{
+			// Arrange
+
+			var options = Options.Create(new OpsOptions() { FilePath = @"..\..\..\..\Files\OPKISS_DEF_2022_neu.xml" });
+
+			var opsSearchEngine = new OpsSearchEngineService(new XmlStringReader(options), new XmlFileDeserializer<Project>(), new Trie(), _mapper);
+
+			var inputOpsList = new List<string> { "5-362.53" };
+
+			// Act
+			var modules = await opsSearchEngine.FindModules(new OpsRequest() { Age = 25, OpsCodes = inputOpsList });
+
+			// Assert
+			Assert.Equal(2, modules.Modules["5-362.53"].Count);
+			Assert.True(modules.Modules["5-362.53"].Exists(x => x.Name == "COBY_T"));
+			Assert.True(modules.Modules["5-362.53"].Exists(x => x.Name == "COBY_L"));
+		}
+
+		[Fact]
+		public async Task FindModules_IfHasMoreThanOneModuleButOneMatches_ShouldReturnCorrectModule()
+		{
+			// Arrange
+
+			var options = Options.Create(new OpsOptions() { FilePath = @"..\..\..\..\Files\OPKISS_DEF_2022_neu.xml" });
+
+			var opsSearchEngine = new OpsSearchEngineService(new XmlStringReader(options), new XmlFileDeserializer<Project>(), new Trie(), _mapper);
+
+			var inputOpsList = new List<string> { "5-362.53", "5-38b.2" };
+
+			// Act
+			var modules = await opsSearchEngine.FindModules(new OpsRequest() { Age = 25, OpsCodes = inputOpsList });
+
+			// Assert
+			Assert.Equal(2, modules.Modules["5-362.53"].Count);
+		}
 	}
 }

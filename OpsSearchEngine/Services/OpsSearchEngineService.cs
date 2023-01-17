@@ -103,13 +103,13 @@ namespace OpsSearchEngine.Services
 					if (module.Excludes != null && PatternMatches(ops, module.Excludes))
 					{
 						excludeMatches = true;
-						break;
+						continue;
 					}
 
 					if (module.Includes == null || PatternMatches(ops, module.Includes))
 					{
 						includeMatches = true;
-						break;
+						continue;
 					}
 				}
 
