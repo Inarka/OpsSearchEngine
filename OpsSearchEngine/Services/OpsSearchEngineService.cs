@@ -5,13 +5,11 @@ using OpsSearchEngine.Models.XML;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace OpsSearchEngine.Services
 {
-	public class OpsSearchEngineService : IOpsSearchEngine
+	public class OpsSearchEngineService : IEngine
 	{
 		private readonly IXmlStringReader _xmlReader;
 		private readonly IXmlDeserializer<Project> _xmlDeserializer;

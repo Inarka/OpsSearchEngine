@@ -1,6 +1,4 @@
-﻿
-using OpsSearchEngine.Models.XML;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OpsSearchEngine.Models
 {

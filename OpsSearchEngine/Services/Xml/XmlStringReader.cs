@@ -2,7 +2,6 @@
 using OpsSearchEngine.Interfaces;
 using OpsSearchEngine.Models.Options;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace OpsSearchEngine.Services.Xml
 {

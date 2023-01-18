@@ -1,7 +1,6 @@
 ﻿using OpsSearchEngine.Interfaces;
 using OpsSearchEngine.Models;
 using OpsSearchEngine.Models.XML;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace OpsSearchEngine.Services
