@@ -28,9 +28,9 @@ namespace OpsSearchEngine.Services
 			_mapper = mapper;
 		}
 
-		public async Task<ModulesResponse> FindModules(OpsRequest request)
+		public ModulesResponse FindModules(PatientInfo patientInfo)
 		{
-			var input = await _xmlReader.ReadXmlAsync();
+			var input = _xmlReader.ReadXml();
 
 			var project = _xmlDeserializer.Deserialize(input);
 
@@ -40,7 +40,7 @@ namespace OpsSearchEngine.Services
 
 			var response = new ModulesResponse();
 
-			foreach (var ops in request.OpsCodes)
+			foreach (var ops in patientInfo.OpsCodes)
 			{
 				var candidate = _trie.FindNode(opsCodesTrieRoot, ops);
 
@@ -49,9 +49,9 @@ namespace OpsSearchEngine.Services
 					continue;
 				}
 
-				ChooseCorrectAgeModule(candidate.ModuleInclExcls, request.Age);
+				ChooseCorrectAgeModule(candidate.ModuleInclExcls, patientInfo.Age);
 
-				ChooseCorrectInclExclModule(candidate.ModuleInclExcls, request.OpsCodes);
+				ChooseCorrectInclExclModule(candidate.ModuleInclExcls, patientInfo.OpsCodes);
 
 				if (!candidate.ModuleInclExcls.Any())
 				{
@@ -103,20 +103,18 @@ namespace OpsSearchEngine.Services
 					if (module.Excludes != null && PatternMatches(ops, module.Excludes))
 					{
 						excludeMatches = true;
-						continue;
+						break;
 					}
 
-					if (module.Includes == null || PatternMatches(ops, module.Includes))
+					if (!includeMatches && (module.Includes == null || PatternMatches(ops, module.Includes)))
 					{
 						includeMatches = true;
-						continue;
 					}
 				}
 
 				if (excludeMatches || !includeMatches)
 				{
 					modules.Remove(module);
-					continue;
 				}
 			}
 		}
@@ -135,14 +133,12 @@ namespace OpsSearchEngine.Services
 
 			modules = modules.Where(x => _modules[x.ModulName].StartAlter <= age && _modules[x.ModulName].BisAlter >= age).ToList();
 		}
-
 		private bool IsEndoOps(string opsCode, string moduleEndoOpses)
 		{
 			var endoOpsList = moduleEndoOpses.Split(';');
 
 			return PatternMatches(opsCode, endoOpsList.ToList());
 		}
-
 		private bool PatternMatches(string opsCode, List<string> inputPatternOpses)
 		{
 			foreach (var inputOps in inputPatternOpses)

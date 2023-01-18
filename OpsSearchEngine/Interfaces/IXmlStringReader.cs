@@ -8,6 +8,6 @@ namespace OpsSearchEngine.Interfaces
 {
 	public interface IXmlStringReader
 	{
-		public Task<string> ReadXmlAsync();
+		public string ReadXml();
 	}
 }

@@ -15,9 +15,9 @@ namespace OpsSearchEngine.Services.Xml
             _options = options.Value;
         }
 
-        public Task<string> ReadXmlAsync()
+        public string ReadXml()
         {
-            return File.ReadAllTextAsync(_options.FilePath);
+            return File.ReadAllText(_options.FilePath);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace UnitTests
 		 
 
 		[Fact]
-		public async Task FindModules_IfModuleExistsAndIsEndo_ShouldReturnCorrectModule()
+		public void FindModules_IfModuleExistsAndIsEndo_ShouldReturnCorrectModule()
 		{
 			// Arrange
 
@@ -38,7 +38,7 @@ namespace UnitTests
 			var inputOpsList = new List<string> { "5-324.62", "5-874.2", "5-470.1" };
 
 			// Act
-			var modules = await opsSearchEngine.FindModules(new OpsRequest() { Age = 25, OpsCodes = inputOpsList });
+			var modules = opsSearchEngine.FindModules(new PatientInfo() { Age = 25, OpsCodes = inputOpsList });
 
 			// Assert
 			Assert.NotEmpty(modules.Modules);
@@ -49,7 +49,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task FindModules_IfHasMoreThanOneModule_ShouldReturnAllModules()
+		public void FindModules_IfHasMoreThanOneModule_ShouldReturnAllModules()
 		{
 			// Arrange
 
@@ -60,7 +60,7 @@ namespace UnitTests
 			var inputOpsList = new List<string> { "5-362.53" };
 
 			// Act
-			var modules = await opsSearchEngine.FindModules(new OpsRequest() { Age = 25, OpsCodes = inputOpsList });
+			var modules = opsSearchEngine.FindModules(new PatientInfo() { Age = 25, OpsCodes = inputOpsList });
 
 			// Assert
 			Assert.Equal(2, modules.Modules["5-362.53"].Count);
@@ -69,7 +69,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task FindModules_IfHasMoreThanOneModuleButOneMatches_ShouldReturnCorrectModule()
+		public void FindModules_IfHasMoreThanOneModuleButOneMatches_ShouldReturnCorrectModule()
 		{
 			// Arrange
 
@@ -80,10 +80,11 @@ namespace UnitTests
 			var inputOpsList = new List<string> { "5-362.53", "5-38b.2" };
 
 			// Act
-			var modules = await opsSearchEngine.FindModules(new OpsRequest() { Age = 25, OpsCodes = inputOpsList });
+			var modules = opsSearchEngine.FindModules(new PatientInfo() { Age = 25, OpsCodes = inputOpsList });
 
 			// Assert
 			Assert.Equal(2, modules.Modules["5-362.53"].Count);
+			Assert.False(modules.Modules["5-362.53"].Exists(x => x.Name == "COBY_T"));
 		}
 	}
 }

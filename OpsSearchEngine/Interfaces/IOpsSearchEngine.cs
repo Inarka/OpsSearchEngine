@@ -5,6 +5,6 @@ namespace OpsSearchEngine.Interfaces
 {
 	public interface IOpsSearchEngine
 	{
-		public Task<ModulesResponse> FindModules(OpsRequest request);
+		public ModulesResponse FindModules(PatientInfo patientInfo);
 	}
 }
